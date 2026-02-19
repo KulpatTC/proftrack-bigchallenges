@@ -18,12 +18,16 @@ offset = 0
 while True:
     try:
         response = vk.groups.getMembers(group_id=group_id_test1, fields="bdate, universities", offset=offset)
+        for user in response['items']:
+            if 'universities' in user and user['universities']:
+                uni_name = user['universities'][0].get('name')
+                user['universities'] = uni_name
         members_test.extend(response['items'])
         if offset + 1000 >= response['count']:
             break
         if offset >= 150000:
             break
-        print(f"Загружено четотам {len(members_test)}")
+        print(f"Загружено данных тестовых {len(members_test)}")
         offset += 1000
         time.sleep(0.5)
     except vk_api.exceptions.ApiError as e:
@@ -32,17 +36,43 @@ while True:
             time.sleep(60)
             continue
 
+offset = 0
+while True:
+    try:
+        response = vk.groups.getMembers(group_id=group_id_test2, fields="bdate, universities", offset=offset)
+        for user in response['items']:
+            if 'universities' in user and user['universities']:
+                uni_name = user['universities'][0].get('name')
+                user['universities'] = uni_name
+
+        members_test.extend(response['items'])
+        if offset + 1000 >= response['count']:
+            break
+        if offset >= 150000:
+            break
+        print(f"Загружено данных тестовых {len(members_test)}")
+        offset += 1000
+        time.sleep(0.5)
+    except vk_api.exceptions.ApiError as e:
+        if e.code == 9:
+            print(f"ОШИБКА")
+            time.sleep(60)
+            continue
 
 offset = 0
 while True:
     try:
         response = vk.groups.getMembers(group_id=group_id_control, fields="bdate, universities", offset=offset)
+        for user in response['items']:
+            if 'universities' in user and user['universities']:
+                uni_name = user['universities'][0].get('name')
+                user['universities'] = uni_name
         members_control.extend(response['items'])
         if offset + 1000 >= response['count']:
             break
         if offset >= 150000:
             break
-        print(f"Загружено четотам2 {len(members_control)}")
+        print(f"Загружено данных контрольных {len(members_control)}")
         offset += 1000
         time.sleep(0.5)
     except vk_api.exceptions.ApiError as e:
