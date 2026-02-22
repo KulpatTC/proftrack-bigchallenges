@@ -484,7 +484,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 10187353,4.5,Yulia,Kuznetsova,False,True,,
 10251250,30.3,Elena,Krapivina,True,False,,
 10307043,24.8,Viktoria,Madyarskaya,True,False,,
-10338971,6.11,Ll,N,True,False,,
+10338971,6.11,Ll,N,False,True,,
 10343431,10.11,Olga,Titova,False,True,,
 10385558,29.9,Elena,Golosun,False,True,,
 10395329,3.12,Ekaterina,Nizhegorodova,False,True,,
@@ -733,7 +733,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 19196928,23.11,Ekaterina,Tabunschik,False,True,,
 19231517,,Maria,Kobzeva,True,False,,
 19266092,,Evgenia,Leonidova,True,False,,
-19356963,4.8,Natalia,Presnyakova,False,True,,
+19356963,4.8,Natalia,Presnyakova,True,False,МГУТУ (ЛФ),
 19384820,27.7.1978,Alexander,Pirogov,True,False,,
 19419228,13.3.1990,Katerina,Orlova,False,True,,
 19466103,,Marina,Shebanova,False,True,,
@@ -1379,7 +1379,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 50102652,20.6.1984,Maria,Kachurina,True,False,ВЗФЭИ (ЛФ),
 50111585,12.9,Svetlana,Lykova,True,False,"ЛГТУ
 ",
-50112989,18.3.1980,Albina,Bayutova,False,True,,
+50112989,18.3.1980,Albina,Bayutova,True,False,,
 50136293,17.7,Anya,Kremnyova,True,False,,
 50196325,30.1.1992,Nikita,Mashukov,True,False,,
 50262301,19.4.1982,Nadezhda,Zibrova,True,False,,
@@ -1389,7 +1389,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 50512747,,Inessa,Senek,True,False,,
 50684801,1.10.1983,Ekaterina,Mokhunova,True,False,РязГМУ им. Павлова,
 50707095,24.4,Lena,Sergach,True,False,,
-50879479,26.4,Nadezhda,Volosatova,False,True,,
+50879479,26.4,Nadezhda,Volosatova,True,False,КГМУ,
 50946511,18.2.1977,Alexey,Prigorkin,True,False,[],
 50952725,13.1,Anastasia,Esina,True,False,,
 50983837,16.6.1987,Yulia,Sokolova,True,False,,
@@ -2163,7 +2163,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 ",
 119711662,,Amalia,Pogosova,False,True,,
 119860914,,Galina,Rost,True,False,,
-120097184,,Olga,Olga,False,True,,
+120097184,,Olga,Olga,True,False,,
 120144387,8.7,Natalia,Nikishina,False,True,,
 120199106,,Nikita,Orekhov,True,False,,
 120541690,,Katya,****,False,True,,
@@ -3149,7 +3149,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 230521238,11.2.1984,Lyubov,Lyubov,False,True,,
 230591464,27.1.1983,Snezhana,Sumkina,True,False,[],
 231211295,9.10,Nadezhda,Viktorovna,False,True,,
-231231933,11.11,Sveta,Zachinyaeva,False,True,,
+231231933,11.11,Sveta,Zachinyaeva,True,False,[],
 231357941,14.10.1983,Elena,Khudoshina,True,False,КГМУ,
 231406982,27.7.2001,Ruzanna,Mikaelyan,True,False,ЛГПУ им. П. П. Семенова-Тян-Шанского,
 231566027,7.6,Elena,Karakulova,True,False,,
@@ -3637,7 +3637,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 328251690,,Yulia,Faustova,False,True,,
 328252136,6.10.1963,Andrey,Baranov,True,False,,
 328427249,,Olga,Kopaeva,True,False,,
-328864167,26.1,Marina,Bukinich,False,True,,
+328864167,26.1,Marina,Bukinich,True,False,,
 329198290,29.2.1984,Turagentstvo,Turaktivi,True,False,ТГТУ (бывш. ТИХМ),
 329667533,30.7,Tascha,Leonidowna,True,False,,
 330069245,,Tatyana,Chernyaeva,False,True,,
@@ -3762,6 +3762,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 354097896,3.4.2002,Ilya,Avdeev,False,True,,
 354245809,23.7.2002,Katya,Kalincheva,True,False,,
 354704079,10.2,Vladislav,Volfram,False,True,,
+354723404,6.4,Aleksandr,Churilov,True,False,,
 354913883,16.4.1979,Svetlana,Naumova,True,False,"ЛГТУ
 ",
 355099493,13.11.1989,Kalmar,Makerchik,True,False,,
@@ -4207,7 +4208,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 456411587,20.1.1901,Alexey,Akimov,True,False,,
 456555985,30.11,Irina,Alexeevna,False,True,,
 457092037,22.3.1988,Nina,Pertsia,True,False,[],
-457390159,,Liza,Veta,False,True,,
+457390159,,Liza,Veta,True,False,,
 457471610,,Angelina,Kupyrova,False,True,,
 457664237,5.5.1972,Larisa,Skiban,True,False,[],
 458239117,1.3.1984,Anna,Dolgikh,False,True,,
@@ -4264,7 +4265,6 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 327789268,30.8.1995,Alena,Loginova,True,False,,banned
 343752672,,DELETED,,True,False,,deleted
 350181260,14.3.2008,Yulia,Yudina,True,False,,banned
-354723404,6.4,Aleksandr,Churilov,True,False,,deleted
 355944494,7.12.1984,Viktoria,Fink,True,False,,banned
 357814071,,DELETED,,False,True,,deleted
 358926165,,Lyudmila,Titova,True,False,,banned
@@ -6007,7 +6007,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 6936808,11.1,Rina,Petelina,True,False,[],
 6946790,25.1,Lena,Markina,True,False,,
 6960088,3.3,Tatyana,Karlova,True,False,,
-6962603,,Oksana,Korablina,True,False,,
+6962603,,Oksana,Dmitrievna,True,False,,
 7011021,20.6,Sergey,Gribanov,True,False,"Президентская академия (РАНХиГС, бывш. АНХ)",
 7056509,,Galina,Tusheva,True,False,[],
 7070888,,Vera,Evstigneeva,False,True,,
@@ -7660,9 +7660,10 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 104589577,15.1.1993,Lida,Sedogina,True,False,Финансовый университет при Правительстве РФ (ЛФ) (бывш. ЛФ ВЗФЭИ),
 104642730,,Anna,Perlova,False,True,,
 105159906,26.11,Anastasia,Kravchik,False,True,,
-105173384,19.4,Oksana,Chernykh,False,True,,
+105173384,19.4,Oksana,Chernykh,True,False,,
 105205270,5.6.1981,Olga,Krivykh,True,False,"ЕГУ им. Бунина
 ",
+105424675,9.1,Alyona,Kuptsova,False,True,,
 105597813,9.4,Zhanna,Beeva,False,True,,
 105656937,,Viktoria,Schaveleva,False,True,,
 105748899,30.9,Anastasia,Glazkova,True,False,,
@@ -7866,7 +7867,6 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 63664715,23.5.1988,DELETED,,True,False,,deleted
 102896835,,Anatoly,Grigoryan,True,False,,deleted
 113786079,21.5,DELETED,,False,True,,deleted
-131545913,14.4.1991,Evgeny,Furunin,False,True,,banned
 131549596,12.6.1984,Natalya,Solovyeva-Prokofyeva,True,False,"ЕГУ им. Бунина
 ",
 131565947,6.6.2003,Elizaveta,Podlasova,False,True,,
@@ -8143,7 +8143,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 144693616,,Alina,Kuzmicheva,False,True,,
 144774795,7.9.1974,Pavel,Evsin,False,True,,
 144782809,22.11,Elena,Merzlyakova,True,False,,
-144822111,17.12,Elena,Karaseva,False,True,,
+144822111,17.12,Elena,Karaseva,True,False,,
 144827512,14.1.2002,Artyom,Karavaev,False,True,,
 144839364,,Anna,Razomazova,True,False,,
 144853148,1.10,Natalya,Pankina,True,False,,
@@ -8465,7 +8465,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 167442228,3.12,Alyona,Panteleeva,False,True,,
 167574196,29.10.2001,Olya,Golubykh,True,False,,
 167635996,12.6,Margarita,Karasyova,True,False,,
-167648626,7.9,Elena,Girdziauskas,False,True,,
+167648626,7.9,Elena,Girdziauskas,True,False,,
 167655932,12.3,Anna,Kirienko,True,False,,
 167660411,17.2,Svetlana,Spitsyna,True,False,,
 167677603,27.3,Olga,Savina,True,False,,
@@ -8945,7 +8945,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 208275484,26.7,Tatyana,Kuzmina,True,False,,
 208287023,9.6,Yulia,Kolbina,True,False,,
 208432691,,Anna,Efanova,False,True,,
-208471102,,Lyudmila,Zinchenko,True,False,,
+131545913,14.4.1991,Evgeny,Furunin,False,True,,banned
 147864245,,DELETED,,False,True,,deleted
 156556612,20.5,DELETED,,False,True,,deleted
 165245930,,DELETED,,True,False,,deleted
@@ -8964,6 +8964,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 206172150,19.12.1982,Evgenia,Dolmatova,True,False,,banned
 207977222,,Maria,Teleguzova,False,True,,banned
 208434317,,DELETED,,True,False,,deleted
+208471102,,Lyudmila,Zinchenko,True,False,,
 208828603,27.3.1972,Vera,Kapustina,False,True,,
 208901062,26.2,Natalya,Sanina,False,True,,
 208957261,2.2.2004,Evgeny,Tyutyunnik,True,False,ЮЗГУ,
@@ -9976,7 +9977,6 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 314777335,,Nikolay,Rvachev,False,True,,
 314801158,19.3.2004,Andrey,Tushev,True,False,,
 314834894,29.6.2005,Sofia,Druchinina,True,False,,
-314937652,20.4,Karina,Makartseva,True,False,[],
 209488975,,Roman,Deev,False,True,,deleted
 209729932,22.9.1995,Dmitry,Belkov,True,False,,banned
 210564133,21.7,Maxim,Martsinkevich,False,True,,banned
@@ -10007,6 +10007,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 304992263,20.3.1902,DELETED,,False,True,,deleted
 305406895,2.10.1989,DELETED,,True,False,,deleted
 312990877,3.11.1988,Darya,Gurkova,False,True,,banned
+314937652,20.4,Karina,Makartseva,True,False,[],
 314940396,22.6.2006,Alina,Kovalenko,True,False,РУДН,
 315151565,5.6,Elizaveta,Ponarina,False,True,,
 315235743,,Valeria,Belokopytova,True,False,,
@@ -10548,7 +10549,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 371196647,,Dmitry,Matyukhin,True,False,[],
 371268401,21.6.2005,Darya,Kharkova,True,False,РязГМУ им. Павлова,
 371402111,,Agata,Odinets,False,True,,
-371551379,11.9,Sofya,Fomina,False,True,,
+371551379,11.9,Sofya,Fomina,True,False,,
 371591461,,Svetlana,Sigitova,False,True,,
 371595374,,Tatyana,Tonkikh,False,True,,
 371605990,10.8.1998,Anastasia,Volokitina,True,False,[],
@@ -10706,7 +10707,8 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 388530952,29.12.2002,Sanya,Mayorova,True,False,[],
 388554800,2.11.2005,Lizaveta,Fedorenko,False,True,,
 388638673,28.1.2007,Roman,Sapiro,True,False,,
-388745740,9.8,Elizaveta,Melikhova,False,True,,
+388745740,9.8,Elizaveta,Melikhova,True,False,"ВГПУ
+",
 388829893,29.1.2007,Katya,Fisman,True,False,,
 388886877,17.3,Anatoly,Rogov,True,False,,
 388903992,17.4,Olga,Yakutis,True,False,,
@@ -10987,7 +10989,6 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 422908972,20.4,Maria,Kosykh,True,False,,
 422950254,,Danil,Chislov,False,True,,
 423246893,23.11,Irina,Kharina,False,True,,
-423254788,24.1,Anya,Kolganova,True,False,,
 320344038,11.7.1985,Nadezhda,Lopatina,True,False,,banned
 321790795,,DELETED,,False,True,,deleted
 324823698,21.9.2003,DELETED,,True,False,,deleted
@@ -11022,6 +11023,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 420760163,20.1.2003,Dima,Lobanov,False,True,,deleted
 421076941,3.5.2003,Ksenia,Khmel,True,False,,banned
 422627843,27.3,Kristina,Lenitskaya,True,False,,banned
+423254788,24.1,Anya,Kolganova,True,False,,
 423457767,16.5,Svetlana,Osipova,False,True,,
 423496524,19.6.1988,Elena,Zagryadskikh,True,False,,
 423757897,12.8.2005,Varvara,Smykova,True,False,[],
@@ -11041,7 +11043,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 425168997,8.8.2006,Anastasia,Kryachko,True,False,,
 425206075,30.6,Tanya,Kopteva,True,False,[],
 425272408,13.10.1971,Olya,Penchukova,False,True,,
-425338728,23.4,Natalia,Romanovna,True,False,,
+425338728,23.4,Natalia,Romanovna,False,True,,
 425368151,,Viktoriya,Astapova,False,True,,
 425403698,15.1.2001,Diana,Nozdrevatykh,True,False,,
 425904341,,Shik,Lenok,True,False,[],
@@ -11528,7 +11530,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 479464996,3.4.2004,Elen,Oganesyan,True,False,,
 479757098,15.8,Valeria,Gorbachyova,False,True,,
 479991186,16.10,Stepan,Smolyakov,True,False,,
-480016823,13.3,Christina,Denisovna,True,False,,
+480016823,13.3,Christina,Denisovna,False,True,,
 480189834,,Natalya,Kozhina,True,False,[],
 480432365,28.2,Kirill,Kuritsyn,False,True,,
 480958176,11.9.2006,Kirill,Gorshevsky,True,False,"ЛГТУ
@@ -11714,7 +11716,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 500478859,15.12.2007,Viktoria,Logvinova,True,False,[],
 500597117,24.7.2004,Artemy,Belykh,True,False,,
 500757112,19.2,Dasha,Semenikhina,False,True,,
-500839786,,Ekaterina,Krakhotina,False,True,,
+500839786,,Ekaterina,Krakhotina,True,False,,
 501019251,,Darya,Glotova,True,False,,
 501037541,24.7.2007,Diana,Arslanova,False,True,,
 501509638,4.6,Anya,Samoylova,False,True,,
@@ -12000,7 +12002,6 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 524499615,2.7.2007,Alyona,Serikova,True,False,,
 524507319,5.3,Vadim,Vinogradov,True,False,[],
 524522742,27.7,Olga,Kuznetsova,True,False,[],
-524565564,30.5,Alina,Goncharova,False,True,,
 430885301,,Arina,Nefyodova,True,False,,banned
 432606065,,Andrey,Zuev,True,False,,banned
 432650733,6.1.1999,DELETED,,True,False,,deleted
@@ -12035,10 +12036,11 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 510308800,6.10.2004,DELETED,,False,True,,deleted
 510346994,17.9.1987,Pavel,Belsky,True,False,,banned
 520976902,,Aleksandr,Dazy,True,False,,banned
+524565564,30.5,Alina,Goncharova,False,True,,
 524586475,22.2.2005,Konstantin,Dushkin,True,False,,
 524604278,,Anton,Tokarev,True,False,,
 524631930,28.8.2007,Tatyana,Dzukaeva,False,True,,
-524677050,9.4,Irina,Velikanova,True,False,СГТУ им. Ю. А. Гагарина (бывш. СПИ),
+524677050,,Irina,Velikanova,False,True,,
 524709947,20.9.2009,Ksenia,Popova,True,False,,
 524716628,3.5.2005,Vika,Kruglikova,True,False,[],
 524847112,,Marina,Alexandrovna,True,False,[],
@@ -12333,7 +12335,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 549570014,26.2.2005,Taisia,Burdukova,True,False,[],
 549626373,,Nelli,Tyurina,True,False,[],
 549629486,14.1.2009,Masha,Usachyova,True,False,,
-549643783,18.3.2006,Anastasia,Skachkova,True,False,,
+549643783,18.3.2006,Anastasia,Skachkova,False,True,,
 549661230,15.8.2003,Ulyana,Korosteleva,True,False,,
 549772067,4.5,Irina,Shkolnaya,False,True,,
 549772362,22.6.1999,Danil,Gromov,False,True,,
@@ -13000,7 +13002,6 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 600168531,9.6.2005,Dima,Cheprasov,True,False,,
 600185103,11.1,Alina,Pogrebenko,False,True,,
 600190195,7.12.1982,Tatyana,Golubnyak,True,False,[],
-600280950,10.1.2009,Nechaeva,Miroslava,False,True,,
 525741919,26.4,DELETED,,False,True,,deleted
 526104195,5.7.2008,DELETED,,False,True,,deleted
 530832655,,DELETED,,True,False,,deleted
@@ -13040,6 +13041,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 595666545,,DELETED,,False,True,,deleted
 596227288,25.2.2000,DELETED,,True,False,,deleted
 597125276,,DELETED,,True,False,,deleted
+600280950,10.1.2009,Nechaeva,Miroslava,False,True,,
 600297221,14.11.2006,Maria,Saprykina,True,False,,
 600375430,8.1.1985,Anna,Kostromina,True,False,[],
 600482511,,Suzanna,Atoyan,True,False,,
@@ -14010,7 +14012,6 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 721832652,21.12.2007,Ulyana,Suturina,True,False,[],
 721840978,14.9.1986,Yulia,Zhavoronkova,True,False,УлГТУ,
 721878293,25.4.1997,Egor,Zaikin,True,False,[],
-721927938,13.5.2000,Serezha,Grigoryev,True,False,[],
 603770877,16.4.2006,Evgenia,Silik,True,False,,banned
 607846663,12.7.1985,Alex,Myz,True,False,,banned
 608174849,18.5.2005,Vladislav,Panichkin,False,True,,banned
@@ -14046,6 +14047,7 @@ id,bdate,first_name,last_name,can_access_closed,is_closed,universities,deactivat
 709662309,25.4.2008,DELETED,,False,True,,deleted
 710594895,6.1.1989,Veronika,Gerasimova,False,True,,banned
 718272634,17.9.2004,DELETED,,True,False,,deleted
+721927938,13.5.2000,Serezha,Grigoryev,True,False,[],
 722379947,3.7,Liza,Pirogova,True,False,,
 722411218,21.1.2011,Kolcheva,Elya,True,False,[],
 722440449,27.4.2000,Olga,Popova,True,False,[],
