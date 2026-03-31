@@ -15,7 +15,6 @@ vk = vk_session.get_api()
 
 
 class LoaderThread(QThread):
-    # Сигнал, который мы отправим в интерфейс, когда всё скачается
     finished = pyqtSignal(object)
     progress = pyqtSignal(str)
 
@@ -102,7 +101,6 @@ class MyWidget(QMainWindow):
         self.thread.start()
 
     def update_status(self, text):
-        # Эта функция выполняется в главном потоке, поэтому тут менять текст МОЖНО
         self.label_3.setText(text)
 
     def on_finished(self, result):
