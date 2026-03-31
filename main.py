@@ -14,7 +14,7 @@ from urllib3.util.util import to_str
 class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('./ui/window.ui', self)  # Загружаем дизайн
+        uic.loadUi('./ui/main_window.ui', self)  # Загружаем дизайн
         self.pushButton.clicked.connect(self.run)
 
     def run(self):
