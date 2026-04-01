@@ -2,9 +2,9 @@ import vk_api
 import pandas as pd
 import time
 from PyQt6 import uic
-from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QLabel, QLineEdit
+from PyQt6.QtWidgets import QApplication, QMainWindow
 from PyQt6.QtCore import QThread, pyqtSignal
-from dotenv import load_dotenv, dotenv_values
+from dotenv import load_dotenv
 import os
 import sys
 
