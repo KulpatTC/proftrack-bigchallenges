@@ -16,13 +16,27 @@ vk_session = vk_api.VkApi(token=token)
 vk = vk_session.get_api()
 
 
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
+
+if getattr(sys, 'frozen', False):
+    BASE_DIR = os.path.dirname(sys.executable)
+else:
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
 class LoaderThread(QThread):
     finished = pyqtSignal(object)
     progress = pyqtSignal(str)
 
     def __init__(self, group_id_test, group_id_control):
         super().__init__()
-        self.group_id_test = group_id_test #group_id_control = ['46936573'] group_id_test = ['141995075', '127973328']
+        self.group_id_test = group_id_test  # group_id_control = ['46936573'] group_id_test = ['141995075', '127973328']
         self.group_id_control = group_id_control
 
     def run(self):
@@ -80,8 +94,10 @@ class LoaderThread(QThread):
                         continue
         df_control = pd.DataFrame(members_control)
         df_test = pd.DataFrame(members_test)
-        df_control.to_csv('all_contr.csv', index=False)
-        df_test.to_csv('all_test.csv', index=False)
+        path_to_csv_contr = os.path.join(BASE_DIR, 'all_contr.csv')
+        df_control.to_csv(path_to_csv_contr, index=False)
+        path_to_csv_test = os.path.join(BASE_DIR, 'all_test.csv')
+        df_test.to_csv(path_to_csv_test, index=False)
         result = "Данные успешно загружены"
         self.finished.emit(result)
 
@@ -89,7 +105,7 @@ class LoaderThread(QThread):
 class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('./ui/main.ui', self)  # Загружаем дизайн
+        uic.loadUi(resource_path('./ui/main.ui'), self)  # Загружаем дизайн
         self.corrBtn.clicked.connect(self.run)
         self.downloadBtn.clicked.connect(self.start_loading)
 
@@ -113,8 +129,14 @@ class MyWidget(QMainWindow):
 
     def run(self):
         plt.close()
-        test_gr = pd.read_csv('all_test.csv', delimiter=',')
-        contr_gr = pd.read_csv('all_contr.csv', delimiter=',')
+        try:
+            path_to_csv_contr = os.path.join(BASE_DIR, 'all_contr.csv')
+            path_to_csv_test = os.path.join(BASE_DIR, 'all_test.csv')
+            test_gr = pd.read_csv(path_to_csv_test, delimiter=',')
+            contr_gr = pd.read_csv(path_to_csv_contr, delimiter=',')
+        except FileNotFoundError as e:
+            self.corr_label.setText("Данные не загружены")
+            return
         list_of_best = ['МГУ', "МГТУ", "МФТИ", "МГИМО", "МИФИ", "СПбГУ", "ВШЭ", "РАНХиГС", "ИТМО", "УрФУ", "РУДН",
                         "МИСИС",
                         "КФУ", "РЭУ", "ФУ", "РЭШ", "РНИМУ", "МГЮА", "ПСПбГУ", "МИРЭА", "СПбГПМУ", "СПбПУ", "МГМСУ",
@@ -174,7 +196,8 @@ class MyWidget(QMainWindow):
         final_test = pd.concat([final_test, temp_contr], ignore_index=True)
         corr_result = final_test[['data_from', 'universities']].corr(method="spearman").iloc[0, 1]
 
-        final_test.to_csv('test.csv', index=False)
+        path_to_csv = os.path.join(BASE_DIR, 'test.csv')
+        final_test.to_csv(path_to_csv, index=False)
         props = final_test.groupby("data_from")["universities"].value_counts(normalize=True).unstack()
         props.plot(kind='bar', stacked=True, color=['lightgrey', 'gold'])
         plt.xlabel('Откуда данные', fontsize=12)
