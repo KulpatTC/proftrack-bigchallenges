@@ -1,23 +1,118 @@
-import sys
-
-import numpy as np
 import pandas as pd
 import time
-import matplotlib
-import matplotlib.pyplot as plt
 from PyQt6 import uic
-from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QLabel
+from PyQt6.QtWidgets import QApplication, QMainWindow
+from PyQt6.QtCore import QThread, pyqtSignal
+from PyQt6.QtGui import QPixmap
+from dotenv import load_dotenv
+import os
+import sys
+import matplotlib.pyplot as plt
+import vk_api
 
-from urllib3.util.util import to_str
+load_dotenv()
+token = os.getenv('TOKEN')
+vk_session = vk_api.VkApi(token=token)
+vk = vk_session.get_api()
+
+
+class LoaderThread(QThread):
+    finished = pyqtSignal(object)
+    progress = pyqtSignal(str)
+
+    def __init__(self, group_id_test, group_id_control):
+        super().__init__()
+        self.group_id_test = group_id_test #group_id_control = ['46936573'] group_id_test = ['141995075', '127973328']
+        self.group_id_control = group_id_control
+
+    def run(self):
+
+        members_test = []
+        members_control = []
+
+        for id in self.group_id_test:
+            offset = 0
+            while True:
+                try:
+                    response = vk.groups.getMembers(group_id=id, fields="bdate, universities", offset=offset)
+                    for user in response['items']:
+                        if 'universities' in user and user['universities']:
+                            uni_name = user['universities'][0].get('name')
+                            user['universities'] = uni_name
+                    members_test.extend(response['items'])
+                    if offset + 1000 >= response['count']:
+                        break
+                    if offset >= 150000:
+                        break
+                    self.progress.emit(f"Загружено данных тестовых {len(members_test)}")
+                    print(f"Загружено данных тестовых {len(members_test)}")
+                    offset += 1000
+                    time.sleep(0.5)
+                except vk_api.exceptions.ApiError as e:
+                    if e.code == 9:
+                        self.progress.emit(f"ОШИБКА {e}")
+                        print(f"ОШИБКА {e}")
+                        time.sleep(60)
+                        continue
+        for id in self.group_id_control:
+            offset = 0
+            while True:
+                try:
+                    response = vk.groups.getMembers(group_id=id, fields="bdate, universities", offset=offset)
+                    for user in response['items']:
+                        if 'universities' in user and user['universities']:
+                            uni_name = user['universities'][0].get('name')
+                            user['universities'] = uni_name
+                    members_control.extend(response['items'])
+                    if offset + 1000 >= response['count']:
+                        break
+                    if offset >= 150000:
+                        break
+                    self.progress.emit(f"Загружено данных контрольных {len(members_control)}")
+                    print(f"Загружено данных контрольных {len(members_control)}")
+                    offset += 1000
+                    time.sleep(0.5)
+                except vk_api.exceptions.ApiError as e:
+                    if e.code == 9:
+                        self.progress.emit(f"ОШИБКА {e}")
+                        print(f"ОШИБКА {e}")
+                        time.sleep(60)
+                        continue
+        df_control = pd.DataFrame(members_control)
+        df_test = pd.DataFrame(members_test)
+        df_control.to_csv('all_contr.csv', index=False)
+        df_test.to_csv('all_test.csv', index=False)
+        result = "Данные успешно загружены"
+        self.finished.emit(result)
 
 
 class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('./ui/main_window.ui', self)  # Загружаем дизайн
-        self.pushButton.clicked.connect(self.run)
+        uic.loadUi('./ui/main.ui', self)  # Загружаем дизайн
+        self.corrBtn.clicked.connect(self.run)
+        self.downloadBtn.clicked.connect(self.start_loading)
+
+    def start_loading(self):
+        test_ids = [i.strip() for i in self.lineEditTest.text().split(',') if i.strip()]
+        control_ids = [i.strip() for i in self.lineEditContr.text().split(',') if i.strip()]
+        self.downloadBtn.setEnabled(False)  # Отключаем кнопку, чтобы не нажали дважды
+        self.thread = LoaderThread(test_ids, control_ids)
+
+        self.thread.progress.connect(self.update_status)
+
+        self.thread.finished.connect(self.on_finished)
+        self.thread.start()
+
+    def update_status(self, text):
+        self.files_label.setText(text)
+
+    def on_finished(self, result):
+        self.files_label.setText(result)
+        self.downloadBtn.setEnabled(True)
 
     def run(self):
+        plt.close()
         test_gr = pd.read_csv('all_test.csv', delimiter=',')
         contr_gr = pd.read_csv('all_contr.csv', delimiter=',')
         list_of_best = ['МГУ', "МГТУ", "МФТИ", "МГИМО", "МИФИ", "СПбГУ", "ВШЭ", "РАНХиГС", "ИТМО", "УрФУ", "РУДН",
@@ -85,11 +180,26 @@ class MyWidget(QMainWindow):
         plt.xlabel('Откуда данные', fontsize=12)
         plt.ylabel('Доля количества данных', fontsize=12)
         plt.title('Доля студентов топ-вузов в группах')
+        plt.get_current_fig_manager().set_window_title('Результаты анализа групп')
         plt.legend(['Не "Топовый" ВУЗ', '"Топовый ВУЗ"'], loc='lower right')
         plt.show()
-        self.label.setText(f'Корреляция равна {corr_result.astype('float')}.\n'
-                           f'Это слабая подтверждающая, но \n'
-                           f'положительная зависимость')
+        if 0.4 >= corr_result.astype('float') > 0:
+            self.corr_label.setText(f'Корреляция равна {corr_result.astype('float')}.\n'
+                                    f'Это слабая подтверждающая, но \n'
+                                    f'положительная зависимость')
+        elif 0.4 < corr_result.astype('float'):
+            self.corr_label.setText(f'Корреляция равна {corr_result.astype('float')}.\n'
+                                    f'Это подтверждающая, \n'
+                                    f'положительная зависимость')
+        elif -0.4 <= corr_result.astype('float') < 0:
+            self.corr_label.setText(f'Корреляция равна {corr_result.astype('float')}.\n'
+                                    f'Это слабая подтверждающая, но \n'
+                                    f'отрицательная зависимость')
+        elif -0.4 > corr_result.astype('float'):
+            self.corr_label.setText(f'Корреляция равна {corr_result.astype('float')}.\n'
+                                    f'Это подтверждающая, \n'
+                                    f'отрицательная зависимость')
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
